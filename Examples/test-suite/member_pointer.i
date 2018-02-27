@@ -115,11 +115,34 @@ double (Shape::*perimetervar)(void) = &Shape::perimeter;
 PerimeterFunc_td perimetervar_td = &Shape::perimeter;
 %}
 
+/* Avoid -Werror=conversion-null error caused by passing NULL into a templated
+ * function (NULL is by definition an integer, so templating on that parameter
+ * will *always* cause this error).
+ *
+ * Instead, use `nullptr` which is of type nullptr_t and implicitly convertible
+ * to a pointer. For builds using C++98, define as the integer zero (rather
+ * than the macro NULL) in order to silence the warning.
+ *
+ * Finally, some C++03 build systems seem to define a nullptr type: at least,
+ * this is the case in the default Clang build on apple systems:
+member_pointer_wrap.cxx:1891:9: error: 'nullptr' macro redefined [-Werror,-Wmacro-redefined]
+#define nullptr 0
+        ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/cstddef:87:9: note: previous definition is here
+#define nullptr _VSTD::__get_nullptr_t()
+ *
+ */
+%{
+#include <cstddef>
+#if (__cplusplus < 201103L) && !defined(nullptr)
+#define nullptr 0
+#endif
+%}
 
 /* Some constants */
 %constant double (Shape::*AREAPT)(void) = &Shape::area;
 %constant double (Shape::*PERIMPT)(void) = &Shape::perimeter;
-%constant double (Shape::*NULLPT)(void) = NULL;
+%constant double (Shape::*NULLPT)(void) = nullptr;
 
 /*
 %inline %{
