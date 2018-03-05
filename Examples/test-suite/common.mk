@@ -340,7 +340,6 @@ CPP_TEST_CASES += \
 	overload_subtype \
 	overload_template \
 	overload_template_fast \
-	pod_struct \
 	pointer_reference \
 	preproc_constants \
 	primitive_ref \
@@ -667,7 +666,6 @@ C_TEST_CASES += \
 	newobject2 \
 	overload_extend_c \
 	overload_extend2 \
-	pod_struct_c \
 	preproc \
 	preproc_constants_c \
 	preproc_defined \
