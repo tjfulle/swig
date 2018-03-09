@@ -1,15 +1,6 @@
 <!--
 This document is formatted with [Github-flavored
 Markdown](https://github.github.com/gfm/)
-
-Run with:
-
-pandoc --from=gfm+smart --no-highlight \
--M title:"SWIG and Fortran" -M author:"Seth R Johnson" \
---toc --standalone -H style.css -o ../Fortran.html Fortran.md
-python pandoc2swigman.py
-git add -p ../Fortran.html
-
 -->
 
 # Overview 
@@ -935,6 +926,11 @@ named `VecDbl`, write
 %include <std_vector.i>
 %template(VecDbl) std::vector<double>;
 ```
+
+The `std::vector` class implementation in Fortran is supplemented by two
+methods for native Fortran interoperability. The first method, `assign`, sets
+the contents of the vector to the passed Fortran array. The second, `view`,
+returns an array pointer to the content of the vector.
 
 If your code does not use `std::vector` to do any heavy lifting (i.e. your
 vectors are small and not shared), you can choose to transparently convert

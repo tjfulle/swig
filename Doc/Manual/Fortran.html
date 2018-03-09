@@ -1170,6 +1170,11 @@ The C <code>std::vector</code> class is included with its basic methods. Several
 
 
 <p>
+The <code>std::vector</code> class implementation in Fortran is supplemented by two methods for native Fortran interoperability. The first method, <code>assign</code>, sets the contents of the vector to the passed Fortran array. The second, <code>view</code>, returns an array pointer to the content of the vector.
+</p>
+
+
+<p>
 If your code does not use <code>std::vector</code> to do any heavy lifting (i.e. your vectors are small and not shared), you can choose to transparently convert those arguments to and from Fortran arrays. This can be done with:
 </p>
 
