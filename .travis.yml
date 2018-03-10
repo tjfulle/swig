@@ -5,18 +5,6 @@ matrix:
       env: SWIGLANG=fortran # Note: C++98
       sudo: required
       dist: trusty
-    - os: linux
-      env: SWIGLANG=fortran SWIG_CC=gcc-5 SWIG_CXX=g++-5 CPP11=1
-      sudo: required
-      dist: trusty
-    - os: linux
-      env: SWIGLANG=fortran SWIG_CC=gcc-6 SWIG_CXX=g++-6 CPP14=1
-      sudo: required
-      dist: trusty
-    - os: linux
-      env: SWIGLANG=fortran SWIG_CC=gcc-7 SWIG_CXX=g++-7 CPP14=1 FCSTD=f2008
-      sudo: required
-      dist: trusty
 before_install:
   - date -u
   - uname -a
