@@ -63,7 +63,7 @@ Status             | `Test`                                 | Comment
 :grey_question:    | `li_std_vector`                        |
 :grey_question:    | `li_std_vector_enum`                   |
 :white_check_mark: | `member_pointer`                       |
-:grey_question:    | `member_pointer_const`                 |
+:white_check_mark: | `member_pointer_const`                 |
 :grey_question:    | `nested_template_base`                 |
 :grey_question:    | `operator_overload`                    |
 :grey_question:    | `overload_template`                    |
@@ -84,5 +84,5 @@ Status             | `Test`                                 | Comment
 :grey_question:    | `typemap_arrays`                       |
 :grey_question:    | `typemap_namespace`                    |
 :grey_question:    | `typemap_out_optimal`                  |
-:grey_question:    | `unions`                               |
+:white_check_mark: | `unions`                               |
 :grey_question:    | `varargs`                              |
